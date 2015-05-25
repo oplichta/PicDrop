@@ -7,6 +7,7 @@
 # dependencies
 /node_modules
 /bower_components
+!bower_components/t17-ember-upload/dist/t17-ember-upload.js
 
 # misc
 /.sass-cache
