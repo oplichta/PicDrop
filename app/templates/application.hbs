@@ -1,3 +1,15 @@
-<h2 id="title">Welcome to Ember.js</h2>
-
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">PicDrop</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><button class="btn-flat btn-primary white-text" id="fb-btn" {{action "uploadAll"}}>
+          Upload to Facebook</button></li>
+      </ul>
+    </div>
+  </nav>
+</div>
 {{outlet}}
+
+{{!-- ember-cli-materialize modal container --}}
+{{md-modal-container}}

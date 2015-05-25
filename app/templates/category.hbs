@@ -1,0 +1,50 @@
+ <div {{bind-attr class=":dropzone showDropzone:visible"}}>
+    <div class="upload circle  blue "></div>
+    <div class="description">
+        <span>Drop files to upload</span>
+    </div>
+</div>
+<h1 class="dropzonee">Drag files there</h1>
+
+  {{#view 'upload' }}
+      {{view view.MultipleInput id="upload"}}
+  {{/view}}
+
+{{#if hasUploads}}
+      <h4>Size: {{totalFileSize}} MB</h4>
+      <div class="row">
+        {{#each file in files}}
+            {{#if file.isDisplayableImage}}
+              <div class="col s3 ">
+                <div class="card-panel teal darken-1">
+                  <script>
+                  $(document).ready(function(){
+                      $('.materialboxed').materialbox();
+                    });
+                  </script>
+                  <img class="materialboxed responsive-img" {{bind-attr src=file.base64Image}} alt="Logo"/>
+                    {{#if file.isUploading}}
+                      <span>Uploading...</span>
+                      <div class="progress">
+                         <div class="indeterminate"></div>
+                      </div>
+                    {{/if}}
+                    {{#if file.didError}}
+                      <span>{{file.errorMessage.errors}}</span>
+                    {{/if}}
+                    {{#if file.didUpload}}
+                      <span>Uploaded<i class="mdi-file-cloud-done"></i></span>
+                    {{/if}}
+                    {{#unless file.didUpload}}
+                      <a  class="waves-effect waves-light btn-flat white-text" href="#" {{action "uploadFile" file}}  ><i class="mdi-file-cloud-upload "></i></a>
+                    {{/unless}}
+                      <a  class="waves-effect waves-light btn-flat white-text" href="#" {{action "removeFile" file}} ><i class="mdi-action-delete right"></i>Remove</a>
+                </div>
+              </div>
+            {{else}}
+                <span>{{file.extension}}</span>
+            {{/if}}
+
+        {{/each}}
+      </div>
+{{/if}}

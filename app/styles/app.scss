@@ -1,0 +1,93 @@
+// Example app.scss
+@import 'components/color';
+@import 'components/variables';
+
+// Custom color settings go here
+$primary-color: color("blue", "lighten-2");
+
+@import 'materialize';
+
+/* FIXME: Workaround for https://github.com/Dogfalo/materialize/issues/1079 */
+@each $mdi-icon-name, $mdi-icon-value in $mdi-list-icons {
+  .#{$mdi-prefix}#{$mdi-icon-name}:before {
+    content: "\""+ $mdi-icon-value +"\"";
+  }
+}
+
+#upload{
+  display:none;
+}
+
+img{
+    // height: auto;
+    // width: 250px;
+    display: block;
+    margin-bottom: 15px;
+  }
+
+.card-panel{
+  margin:5px;
+  // height: 300px;
+}
+.dropzonee{
+  margin-left: 35%;
+  margin-top: 20%;
+}
+.dropzone{display:none}
+.dropzone.visible{
+  display:block;
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  z-index:9999;
+   background:rgba(255,255,255,.85)
+}
+.dropzone .upload{
+  width:30%;height:30%;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto;
+  -webkit-animation:pulsate .80s ease-in-out;-moz-animation:pulsate .80s ease-in-out;-o-animation:pulsate .80s ease-in-out;animation:pulsate .80s ease-in-out;
+  -webkit-animation-iteration-count:infinite;
+  -moz-animation-iteration-count:infinite;
+  -o-animation-iteration-count:infinite;
+  animation-iteration-count:infinite
+}
+.dropzone .description{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto;
+  width:150px;
+  height:150px;
+  color: #FFF;
+  font-size: 18px;
+  text-align:center
+}
+.dropzone .description:before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:0 auto;
+  width:300px;height:300px;
+  background-image:url(/assets/images/t17-upload.png);
+  background-repeat: no-repeat;
+}
+.dropzone .description span{position:absolute;display:block;bottom:0}
+@-webkit-keyframes pulsate{
+  0%{width:250px;height:250px}
+  50%{width:300px;height:300px}
+  100%{width:250px;height:250px}}
+@keyframes pulsate{
+  0%{width:250px;height:250px}
+  50%{width:300px;height:300px}
+  100%{width:250px;height:250px}
+}
