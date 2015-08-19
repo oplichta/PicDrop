@@ -7,6 +7,9 @@
     "doc": "doc",
     "test": "tests"
   },
+  "dependencies": {
+    "broccoli-funnel": "^0.2.3"
+  },
   "scripts": {
     "start": "ember server",
     "build": "ember build",
@@ -20,7 +23,7 @@
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
-    "ember-cli": "0.2.5",
+    "ember-cli": "0.2.6",
     "ember-cli-app-version": "0.3.3",
     "ember-cli-babel": "^5.0.0",
     "ember-cli-content-security-policy": "0.4.0",
@@ -31,16 +34,17 @@
     "ember-cli-materialize": "0.13.7",
     "ember-cli-qunit": "0.3.13",
     "ember-cli-sass": "3.3.1",
+    "ember-cli-simple-auth": "0.8.0-beta.2",
+    "ember-cli-simple-auth-oauth2": "0.8.0-beta.2",
+    "ember-cli-simple-auth-torii": "0.8.0-beta.2",
     "ember-cli-uglify": "^1.0.1",
-    "ember-data": "1.0.0-beta.17",
-    "ember-disable-proxy-controllers": "^0.7.0",
+    "ember-data": "1.0.0-beta.18",
+    "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.2",
     "ember-key-responder": "0.2.1",
     "ember-modal-dialog": "0.3.0",
     "ember-new-computed": "1.0.0",
     "ember-radio-button": "1.0.4",
-    "ember-cli-simple-auth": "0.8.0-beta.2",
-    "ember-cli-simple-auth-oauth2": "0.8.0-beta.2",
-    "ember-cli-simple-auth-torii": "0.8.0-beta.2"
+    "torii": "^0.3.5"
   }
 }

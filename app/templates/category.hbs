@@ -4,12 +4,11 @@
         <span>Drop files to upload</span>
     </div>
 </div>
+<button class="btn btn-primary white-text" id="fb-btn" {{action "uploadAll"}}> Upload </button>
 <h1 class="dropzonee">Drag files there</h1>
-
   {{#view 'upload' }}
       {{view view.MultipleInput id="upload"}}
   {{/view}}
-
 {{#if hasUploads}}
       <h4>Size: {{totalFileSize}} MB</h4>
       <div class="row">
@@ -33,7 +32,7 @@
                       <span>{{file.errorMessage.errors}}</span>
                     {{/if}}
                     {{#if file.didUpload}}
-                      <span>Uploaded<i class="mdi-file-cloud-done"></i></span>
+                      <span class="white-text">Uploaded<i class="small mdi-file-cloud-done"></i></span>
                     {{/if}}
                     {{#unless file.didUpload}}
                       <a  class="waves-effect waves-light btn-flat white-text" href="#" {{action "uploadFile" file}}  ><i class="mdi-file-cloud-upload "></i></a>

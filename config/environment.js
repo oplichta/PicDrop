@@ -7,24 +7,39 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
-      FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
-      }
+      FEATURES: {}
     },
-
-    APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
-    },
-
+    APP: {}
   };
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:oauth2-bearer',
+    crossOriginWhitelist: ['http://127.0.0.1:3000'],
+    store: 'simple-auth-session-store:local-storage'
+  }
+
+  ENV['torii'] = {
+    sessionServiceName: 'session',
+    providers: {
+      'facebook-oauth2': {
+        apiKey: '1572255896381258',
+        redirectUri: 'http://127.0.0.1:3000/auth/facebook',
+        // scope: 'user_photos, user_posts, publish_actions'
+      },
+      'flickr': {
+        requestTokenUri: 'http://127.0.0.1:3000/auth/flickr'
+      },
+      'twitter': {
+        requestTokenUri: 'http://127.0.0.1:3000/auth/flickr'
+      }
+    }
+  };
+
   ENV.contentSecurityPolicy = {
     'default-src': "http://www.facebook.com/",
     'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
     'font-src': "'self' http://fonts.gstatic.com", // Allow fonts to be loaded from http://fonts.gstatic.com
-    'connect-src': "'self' http://localhost:3000/ http://localhost:3000/photos http://localhost:3000/contacts http://127.0.0.1:3000", // Allow data (ajax/websocket) from api.mixpanel.com and custom-api.local
-    'img-src': "'self' http://th01.deviantart.net/fs70/PRE/i/2013/126/1/e/nature_portrait_by_pw_fotografie-d63tx0n.jpg http://localhost:3000 https://farm8.staticflickr.com/ https://farm9.staticflickr.com/ http://assets.pinterest.com/",
+    'connect-src': "'self' http://localhost:3000/ http://localhost:3000/photos http://localhost:3000/tw_upload http://127.0.0.1:3000", // Allow data (ajax/websocket) from api.mixpanel.com and custom-api.local
+    'img-src': "'self' http://localhost:3000 http://localhost:4200/category https://farm8.staticflickr.com/ https://farm9.staticflickr.com/ http://assets.pinterest.com/",
     'report-uri':"'localhost'",
     'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com", // Allow inline styles and loaded CSS from http://fonts.googleapis.com
     'media-src': "'self'"
