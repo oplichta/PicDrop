@@ -11,11 +11,17 @@ module.exports = function(environment) {
     },
     APP: {}
   };
+
   ENV['simple-auth'] = {
-    authorizer: 'simple-auth-authorizer:oauth2-bearer',
-    crossOriginWhitelist: ['http://127.0.0.1:3000'],
+    authorizer: 'simple-auth-authorizer:devise',
+    crossOriginWhitelist: ['*'],
     store: 'simple-auth-session-store:local-storage'
   }
+  ENV['simple-auth-devise'] = {
+    tokenAttributeName: 'token',
+    identificationAttributeName: 'email',
+    serverTokenEndpoint: 'http://localhost:3000/users/sign_in'
+  };
 
   ENV['torii'] = {
     sessionServiceName: 'session',
@@ -38,7 +44,7 @@ module.exports = function(environment) {
     'default-src': "http://www.facebook.com/",
     'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
     'font-src': "'self' http://fonts.gstatic.com", // Allow fonts to be loaded from http://fonts.gstatic.com
-    'connect-src': "'self' http://localhost:3000/ http://localhost:3000/photos http://localhost:3000/tw_upload http://127.0.0.1:3000", // Allow data (ajax/websocket) from api.mixpanel.com and custom-api.local
+    'connect-src': "'self' http://localhost:3000/ http://localhost:3000/photos http://localhost:3000/tw_upload http://127.0.0.1:3000 http://localhost:3000/users/sign_in ",
     'img-src': "'self' http://localhost:3000 http://localhost:4200/category https://farm8.staticflickr.com/ https://farm9.staticflickr.com/ http://assets.pinterest.com/",
     'report-uri':"'localhost'",
     'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com", // Allow inline styles and loaded CSS from http://fonts.googleapis.com
