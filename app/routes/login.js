@@ -5,6 +5,9 @@ export default Ember.Route.extend({
       var data = this.getProperties('identification', 'password');
       return this.get('session').authenticate('simple-auth-authenticator:devise', data);
     },
+    toCategory: function() {
+      this.transitionTo('category');
+    },
     invalidateSession: function() {
       this.get('session').invalidate();
     },
@@ -19,7 +22,7 @@ export default Ember.Route.extend({
       return;
     },
     flickrLogin: function() {
-      this.get('session').authenticate('simple-auth-authenticator:torii', 'flickr');
+      this.get('session').authenticate('simple-auth-authenticator:torii', 'twitter');
       this.transitionTo('category');
       return;
     }

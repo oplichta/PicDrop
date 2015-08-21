@@ -1,11 +1,17 @@
-<h3>Login Route</h3>
-<form {{action 'authenticate' on='submit'}}>
-  <label for="identification">Login</label>
-  {{input value=identification placeholder='Enter Login'}}
-  <label for="password">Password</label>
-  {{input value=password placeholder='Enter Password' type='password'}}
-  <button type="submit">Login</button>
-</form>
-<button {{action 'facebookLogin'}}>Login with Facebook</button>
-<button {{action 'signInViaTwitter'}}>Login via Twitter</button>
-<button {{action 'flickrLogin'}}>Login to Flickr</button>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-4'>
+      <h3>Login Route</h3>
+      <form {{action 'authenticate' on='submit'}}>
+        <label for="identification">Login</label>
+        {{input value=identification placeholder='Enter Login'}}
+        <label for="password">Password</label>
+        {{input value=password placeholder='Enter Password' type='password'}}
+        <button class='btn' type="submit">Login</button>
+        {{#if session.isAuthenticated }}
+             <button class='btn' {{action 'toCategory'}}>toCategory</button>
+        {{/if}}
+      </form>
+    </div>
+  </div>
+</div>

@@ -2,28 +2,25 @@ import Ember from 'ember';
 import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
 export default Ember.Route.extend({
-  ApplicationRouteMixin
-  // actions: {
-    // logout: function() {
-    //   this.get('session').close();
-    // },
-  //   beforeModel: function() {
-  //    return this.get('session').fetch().then(function() {
-  //      console.log('session fetched');
-  //    }, function() {
-  //      console.log('no session to fetch');
-  //    });
-  //  }
-  // }
-
-  // ,
-  // actions: {
-  //   back: function() {
-  //     history.back();
-  //   },
-  //
-  //   openLink: function(url) {
-  //     window.open(url, '_system');
-  //   }
-  // }
+  ApplicationRouteMixin,
+  actions: {
+    invalidateSession: function() {
+      this.get('session').invalidate();
+    },
+    facebookLogin: function() {
+      this.get('session').authenticate('simple-auth-authenticator:torii', 'facebook-oauth2');
+      this.transitionTo('category');
+      return;
+    },
+    signInViaTwitter: function() {
+      this.get('session').authenticate('simple-auth-authenticator:torii', 'twitter');
+      this.transitionTo('category');
+      return;
+    },
+    flickrLogin: function() {
+      this.get('session').authenticate('simple-auth-authenticator:torii', 'flickr');
+      this.transitionTo('category');
+      return;
+    }
+  }
 });

@@ -28,14 +28,14 @@ module.exports = function(environment) {
     providers: {
       'facebook-oauth2': {
         apiKey: '1572255896381258',
-        redirectUri: 'http://127.0.0.1:3000/auth/facebook',
+        redirectUri: 'http://127.0.0.1:3000/users/auth/facebook',
         // scope: 'user_photos, user_posts, publish_actions'
       },
-      'flickr': {
-        requestTokenUri: 'http://127.0.0.1:3000/auth/flickr'
-      },
       'twitter': {
-        requestTokenUri: 'http://127.0.0.1:3000/auth/flickr'
+        requestTokenUri: 'http://127.0.0.1:3000/users/auth/flickr'
+      },
+      'flickr': {
+        requestTokenUri: 'http://127.0.0.1:3000/users/auth/twitter'
       }
     }
   };
