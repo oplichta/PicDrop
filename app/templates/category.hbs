@@ -1,27 +1,40 @@
- <div {{bind-attr class=":dropzone showDropzone:visible"}}>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<div {{bind-attr class=":dropzone showDropzone:visible"}}>
     <div class="upload circle  blue "></div>
     <div class="description">
         <span>Drop files to upload</span>
     </div>
 </div>
-<button class="btn btn-primary white-text" id="fb-btn" {{action "uploadAll"}}> Upload </button>
+
+<button class="btn btn-primary white-text" id="fb-btn" {{action "uploadAll"}}>
+   Upload all  <i class="mdi-file-cloud-upload "></i></button>
 <h1 class="dropzonee">Drag files there</h1>
   {{#view 'upload' }}
-      {{view view.MultipleInput id="upload"}}
+    <div class="image-upload">
+      <label for="upload" class="btn-floating btn-large waves-effect waves-light red">
+          <i class="material-icons">add</i>
+      </label>
+      {{view view.MultipleInput id="upload" }}
+    </div>
   {{/view}}
 {{#if hasUploads}}
       <h4>Size: {{totalFileSize}} MB</h4>
+      <div class="container-fluid">
       <div class="row">
         {{#each file in files}}
             {{#if file.isDisplayableImage}}
-              <div class="col s3 ">
+              <div class="col m3 s12">
                 <div class="card-panel teal darken-1">
+                  <div class='row'>
+
                   <script>
                   $(document).ready(function(){
                       $('.materialboxed').materialbox();
                     });
                   </script>
                   <img class="materialboxed responsive-img" {{bind-attr src=file.base64Image}} alt="Logo"/>
+                  <div class='col m3'>
                     {{#if file.isUploading}}
                       <span>Uploading...</span>
                       <div class="progress">
@@ -37,7 +50,11 @@
                     {{#unless file.didUpload}}
                       <a  class="waves-effect waves-light btn-flat white-text" href="#" {{action "uploadFile" file}}  ><i class="mdi-file-cloud-upload "></i></a>
                     {{/unless}}
+                    </div>
+                      <div class='col m9'>
                       <a  class="waves-effect waves-light btn-flat white-text" href="#" {{action "removeFile" file}} ><i class="mdi-action-delete right"></i>Remove</a>
+                      </div>
+                      </div>
                 </div>
               </div>
             {{else}}
@@ -46,4 +63,5 @@
 
         {{/each}}
       </div>
+    </div>
 {{/if}}

@@ -1,23 +1,21 @@
-// Example app.scss
 @import 'components/color';
 @import 'components/variables';
 
 // Custom color settings go here
 $primary-color: color("blue", "lighten-2");
-
 @import 'materialize';
+@import 'ember-cli-materialize';
 
-/* FIXME: Workaround for https://github.com/Dogfalo/materialize/issues/1079 */
-@each $mdi-icon-name, $mdi-icon-value in $mdi-list-icons {
-  .#{$mdi-prefix}#{$mdi-icon-name}:before {
-    content: "\""+ $mdi-icon-value +"\"";
+.image-upload{
+  margin-left: 85%;
+  margin-top: 5%;
+  #upload{
+    display:none;
   }
 }
-
-#upload{
-  display:none;
+#fb-btn{
+    margin:20px
 }
-
 img{
     // height: auto;
     // width: 250px;

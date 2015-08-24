@@ -2,16 +2,14 @@
 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper">
-      <!-- <a href="#" class="brand-logo">PicDrop</a> -->
-      <a href="http://127.0.0.1:3000/users/auth/facebook" class="btn">Facebook</a>
-      <a href="http://127.0.0.1:3000/users/auth/flickr" class="btn">Flickr</a>
+      <a href="#" class="brand-logo">PicDrop</a>
+
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         {{#if session.isAuthenticated }}
-            <button class='btn' {{action 'invalidateSession'}}>Logout</button>
-
+        <a href="http://127.0.0.1:3000/users/auth/facebook" class="btn">Facebook</a>
+        <a href="http://127.0.0.1:3000/users/auth/flickr" class="btn">Flickr</a>
+        <button class='btn' {{action 'invalidateSession'}}>Logout</button>
         {{else}}
-          <!-- <li><a href="http://127.0.0.1:3000/users/auth/flickr" class="btn">Flickr</a></li> -->
-
           <li>{{#link-to 'login' class='btn'}}login{{/link-to}}</li>
         {{/if}}
       </ul>

@@ -9,7 +9,7 @@ Router.map(function() {
   this.route("category", { path: "/category" });
   this.route('login');
   this.route('logout');
-  this.resource("auth");
+  this.route('register');
 });
 
 export default Router;

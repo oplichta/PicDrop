@@ -2,15 +2,15 @@
   <div class='row'>
     <div class='col m6'>
       <div class="card blue-grey darken-1">
-        <form {{action 'authenticate' on='submit'}}>
+        <form {{action 'registerUser' on='submit'}}>
           <div class="card-content white-text">
-           <span class="card-title"> <h3>Login</h3></span>
+           <span class="card-title"> <h3>Register</h3></span>
            {{input value=identification placeholder='Enter Email'}}
            {{input value=password placeholder='Enter Password' type='password'}}
+           {{input value=password_confirmation placeholder='Enter Password confirmation' type='password'}}
           </div>
           <div class="card-action">
-            <button class='btn' type="submit">Login</button>
-            {{#link-to 'register' }}Sign up{{/link-to}}
+            <button class='btn' type="submit">Sign up</button>
           </div>
         </form>
       </div>

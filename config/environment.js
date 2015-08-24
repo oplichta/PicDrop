@@ -1,5 +1,4 @@
 /* jshint node: true */
-
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 't17upload',
@@ -15,7 +14,8 @@ module.exports = function(environment) {
   ENV['simple-auth'] = {
     authorizer: 'simple-auth-authorizer:devise',
     crossOriginWhitelist: ['*'],
-    store: 'simple-auth-session-store:local-storage'
+    store: 'simple-auth-session-store:local-storage',
+    routeAfterAuthentication: 'category'
   }
   ENV['simple-auth-devise'] = {
     tokenAttributeName: 'token',
@@ -29,7 +29,7 @@ module.exports = function(environment) {
       'facebook-oauth2': {
         apiKey: '1572255896381258',
         redirectUri: 'http://127.0.0.1:3000/users/auth/facebook',
-        // scope: 'user_photos, user_posts, publish_actions'
+        scope: 'user_photos, user_posts, publish_actions'
       },
       'twitter': {
         requestTokenUri: 'http://127.0.0.1:3000/users/auth/flickr'
