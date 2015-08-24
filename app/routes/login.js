@@ -16,11 +16,6 @@ export default Ember.Route.extend({
       this.transitionTo('category');
       return;
     },
-    signInViaTwitter: function() {
-      this.get('session').authenticate('simple-auth-authenticator:torii', 'twitter');
-      this.transitionTo('category');
-      return;
-    },
     flickrLogin: function() {
       this.get('session').authenticate('simple-auth-authenticator:torii', 'twitter');
       this.transitionTo('category');

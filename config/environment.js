@@ -42,9 +42,9 @@ module.exports = function(environment) {
 
   ENV.contentSecurityPolicy = {
     'default-src': "http://www.facebook.com/",
-    'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
+    'script-src': "'self' 'unsafe-inline' 'unsafe-eval' http://127.0.0.1:49154/livereload.js?snipver=1",
     'font-src': "'self' http://fonts.gstatic.com", // Allow fonts to be loaded from http://fonts.gstatic.com
-    'connect-src': "'self' http://localhost:3000/ http://localhost:3000/photos http://localhost:3000/tw_upload http://127.0.0.1:3000 http://localhost:3000/users/sign_in ",
+    'connect-src': "'self' http://localhost:3000/ http://localhost:3000/photos http://localhost:3000/tw_upload http://127.0.0.1:3000 http://localhost:3000/users/sign_in ws://127.0.0.1:49154/livereload",
     'img-src': "'self' http://localhost:3000 http://localhost:4200/category https://farm8.staticflickr.com/ https://farm9.staticflickr.com/ http://assets.pinterest.com/",
     'report-uri':"'localhost'",
     'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com", // Allow inline styles and loaded CSS from http://fonts.googleapis.com
