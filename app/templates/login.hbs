@@ -5,8 +5,8 @@
         <form {{action 'authenticate' on='submit'}}>
           <div class="card-content white-text">
            <span class="card-title"> <h3>Login</h3></span>
-           {{input value=identification placeholder='Enter Email'}}
-           {{input value=password placeholder='Enter Password' type='password'}}
+           {{input value=identification id='identification' placeholder='Enter Email'}}
+           {{input value=password id='password' placeholder='Enter Password' type='password'}}
           </div>
           <div class="card-action">
             <button class='btn' type="submit">Login</button>

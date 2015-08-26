@@ -8,9 +8,9 @@
         {{#if session.isAuthenticated }}
         <a href="http://127.0.0.1:3000/users/auth/facebook" class="btn">Facebook</a>
         <a href="http://127.0.0.1:3000/users/auth/flickr" class="btn">Flickr</a>
-        <button class='btn' {{action 'invalidateSession'}}>Logout</button>
+        <button class='btn' id='logout' {{action 'invalidateSession'}}>Logout</button>
         {{else}}
-          <li>{{#link-to 'login' class='btn'}}login{{/link-to}}</li>
+          <li>{{#link-to 'login' class='btn' id='loginButton'}}Login{{/link-to}}</li>
         {{/if}}
       </ul>
     </div>
