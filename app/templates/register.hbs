@@ -5,12 +5,12 @@
         <form {{action 'registerUser' on='submit'}}>
           <div class="card-content white-text">
            <span class="card-title"> <h3>Register</h3></span>
-           {{input value=identification placeholder='Enter Email'}}
-           {{input value=password placeholder='Enter Password' type='password'}}
-           {{input value=password_confirmation placeholder='Enter Password confirmation' type='password'}}
+           {{input id='email' value=email placeholder='Enter Email'}}
+           {{input id='password' value=password placeholder='Enter Password' type='password'}}
+           {{input id='password_confirmation' value=password_confirmation placeholder='Enter Password confirmation' type='password'}}
           </div>
           <div class="card-action">
-            <button class='btn' type="submit">Sign up</button>
+            <button  id='signup' class='btn' type="submit">Sign up</button>
           </div>
         </form>
       </div>

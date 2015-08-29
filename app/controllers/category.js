@@ -1,6 +1,7 @@
 import {UploadMixin} from 't17-ember-upload';
 import Ember from 'ember';
+import config from '../config/environment';
 
 export default Ember.Controller.extend(UploadMixin, {
-    uploadUrl: 'http://localhost:3000/upload'
+    uploadUrl: config.apiUrl+'/upload'
 });

@@ -4,11 +4,33 @@ module.exports = function(environment) {
     modulePrefix: 't17upload',
     environment: environment,
     baseURL: '/',
-    locationType: 'auto',
+    defaultLocationType: 'auto',
     EmberENV: {
       FEATURES: {}
     },
     APP: {}
+  };
+
+ENV.apiUrl = 'http://127.0.0.1:3000';
+  ENV.cordova = {
+      // Rebuild the cordova project on file changes. Blocks the server until it's
+      // finished.
+      rebuildOnChange: false,
+
+      // Run the cordova emulate command after the build is finished
+      emulate: false,
+
+      // Which platform to build and/or emulate
+      platform: 'android',
+
+      // Which URL the ember server is running on. This is used when using
+      // live-reload that comes with the starter kit.
+      emberUrl: 'http://localhost:4200',
+
+      liveReload: {
+        enabled: false,
+        platform: 'android'
+      }
   };
 
   ENV['simple-auth'] = {
@@ -20,7 +42,7 @@ module.exports = function(environment) {
   ENV['simple-auth-devise'] = {
     tokenAttributeName: 'token',
     identificationAttributeName: 'email',
-    serverTokenEndpoint: 'http://localhost:3000/users/sign_in'
+    serverTokenEndpoint: ENV.apiUrl + '/users/sign_in'
   };
 
   ENV['torii'] = {
@@ -32,23 +54,23 @@ module.exports = function(environment) {
         scope: 'user_photos, user_posts, publish_actions'
       },
       'twitter': {
-        requestTokenUri: 'http://127.0.0.1:3000/users/auth/flickr'
+        requestTokenUri: ENV.apiUrl+'/users/auth/flickr'
       },
       'flickr': {
-        requestTokenUri: 'http://127.0.0.1:3000/users/auth/twitter'
+        requestTokenUri: ENV.apiUrl+'/users/auth/twitter'
       }
     }
   };
 
   ENV.contentSecurityPolicy = {
-    'default-src': "http://www.facebook.com/",
-    'script-src': "'self' 'unsafe-inline' 'unsafe-eval' http://127.0.0.1:49154/livereload.js?snipver=1",
-    'font-src': "'self' http://fonts.gstatic.com", // Allow fonts to be loaded from http://fonts.gstatic.com
-    'connect-src': "'self' http://localhost:3000/ http://localhost:3000/photos http://localhost:3000/tw_upload http://127.0.0.1:3000 http://localhost:3000/users/sign_in ws://127.0.0.1:49154/livereload",
-    'img-src': "'self' http://localhost:3000 http://localhost:4200/category https://farm8.staticflickr.com/ https://farm9.staticflickr.com/ http://assets.pinterest.com/",
-    'report-uri':"'localhost'",
-    'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com", // Allow inline styles and loaded CSS from http://fonts.googleapis.com
-    'media-src': "'self'"
+    'default-src': "http://www.facebook.com/ http://192.168.1.115:3000/users/sign_in",
+    'script-src': "'self' 'unsafe-inline' 'unsafe-eval' http://192.168.1.115:3000/users http://192.168.1.115:3000/users/sign_in",
+    'font-src': "'self' http://fonts.gstatic.com https://fonts.gstatic.com/s/materialicons/v7/",
+    'connect-src': "'self' *",
+    'img-src': "'self' http://localhost:3000 http://localhost:4200/category https://farm8.staticflickr.com/ https://farm9.staticflickr.com/ http://assets.pinterest.com/ http://192.168.1.115:3000/users/sign_in",
+    'report-uri':"'localhost'  http://192.168.1.115:3000/ http://picdrop2.herokuapp.com:3000/",
+    'style-src': "'self' 'unsafe-inline' *",
+    'media-src': "'self' http://192.168.1.115:3000/users/sign_in"
   }
   if (environment === 'development') {
     ENV['simple-auth'] = {

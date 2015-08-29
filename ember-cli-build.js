@@ -8,7 +8,7 @@ module.exports = function(defaults) {
     }
   });
 
-  app.import('bower_components/t17-ember-upload/dist/t17-ember-upload.js', {
+  app.import('vendor/t17-ember-upload.js', {
     exports: {
        't17-ember-upload': [
          'default',

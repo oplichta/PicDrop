@@ -3,14 +3,25 @@
   <nav>
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">PicDrop</a>
-
+      <a {{action "mobileMenu"}} href="#" data-activates="mobile-demo" class="button-collapse">
+        <i class="material-icons">menu</i>
+      </a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         {{#if session.isAuthenticated }}
-        <a href="http://127.0.0.1:3000/users/auth/facebook" class="btn">Facebook</a>
-        <a href="http://127.0.0.1:3000/users/auth/flickr" class="btn">Flickr</a>
-        <button class='btn' id='logout' {{action 'invalidateSession'}}>Logout</button>
+        <li><a href="http://127.0.0.1:3000/users/auth/facebook" class="btn">Facebook</a></li>
+        <li><a href="http://127.0.0.1:3000/users/auth/flickr" class="btn">Flickr</a></li>
+        <li><button class='btn' id='logout' {{action 'invalidateSession'}}>Logout</button></li>
         {{else}}
-          <li>{{#link-to 'login' class='btn' id='loginButton'}}Login{{/link-to}}</li>
+        <li>{{#link-to 'login' class='btn' id='loginButton'}}Login{{/link-to}}</li>
+        {{/if}}
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        {{#if session.isAuthenticated }}
+        <li><a href="http://127.0.0.1:3000/users/auth/facebook">Facebook</a></li>
+        <li><a href="http://127.0.0.1:3000/users/auth/flickr">Flickr</a></li>
+        <li><a  {{action 'invalidateSession'}}>Logout</a></li>
+        {{else}}
+        <li>{{#link-to 'login' }}Login{{/link-to}}</li>
         {{/if}}
       </ul>
     </div>

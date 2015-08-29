@@ -14,7 +14,7 @@
     "jquery-ujs": "~1.0.4",
     "loader.js": "ember-cli/loader.js#3.2.1",
     "materialize": "~0.97.0",
-    "qunit": "~1.18.0",
-    "t17-ember-upload": "git@github.com:trick17media/t17-ember-upload.git"
+    "qunit": "~1.18.0"
+    
   }
 }
