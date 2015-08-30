@@ -11,7 +11,7 @@ module.exports = function(environment) {
     APP: {}
   };
 
-ENV.apiUrl = 'https://picdrop2.herokuapp.com:7312/';
+ENV.apiUrl = 'https://picdrop2.herokuapp.com/';
   ENV.cordova = {
       // Rebuild the cordova project on file changes. Blocks the server until it's
       // finished.
