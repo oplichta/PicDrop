@@ -6,9 +6,11 @@
         <span>Drop files to upload</span>
     </div>
 </div>
-
+{{#if session.isAuthenticated }}
 <button class="btn btn-primary white-text" id="fb-btn" {{action "uploadAll"}}>
-   Upload all  <i class="mdi-file-cloud-upload "></i></button>
+   Upload all  <i class="mdi-file-cloud-upload "></i>
+</button>
+
 <h1 class="dropzonee">Drag files there</h1>
   {{#view 'upload' }}
     <div class="image-upload">
@@ -18,6 +20,9 @@
       {{view view.MultipleInput id="upload" }}
     </div>
   {{/view}}
+{{else}}
+<h1 class="dropzonee">Please log in</h1>
+{{/if}}
 {{#if hasUploads}}
       <h4>Size: {{totalFileSize}} MB</h4>
       <div class="container-fluid">
