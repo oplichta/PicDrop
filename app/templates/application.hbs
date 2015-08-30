@@ -8,8 +8,8 @@
       </a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         {{#if session.isAuthenticated }}
-        <li><a href="http://127.0.0.1:3000/users/auth/facebook" class="btn">Facebook</a></li>
-        <li><a href="http://127.0.0.1:3000/users/auth/flickr" class="btn">Flickr</a></li>
+        <li><a href="http://picdrop2.herokuapp.com:7312/users/auth/facebook" class="btn">Facebook</a></li>
+        <li><a href="http://picdrop2.herokuapp.com:7312/users/auth/flickr" class="btn">Flickr</a></li>
         <li><button class='btn' id='logout' {{action 'invalidateSession'}}>Logout</button></li>
         {{else}}
         <li>{{#link-to 'login' class='btn' id='loginButton'}}Login{{/link-to}}</li>
@@ -17,8 +17,8 @@
       </ul>
       <ul class="side-nav" id="mobile-demo">
         {{#if session.isAuthenticated }}
-        <li><a href="http://127.0.0.1:3000/users/auth/facebook">Facebook</a></li>
-        <li><a href="http://127.0.0.1:3000/users/auth/flickr">Flickr</a></li>
+        <li><a href="http://picdrop2.herokuapp.com:7312/users/auth/facebook">Facebook</a></li>
+        <li><a href="http://picdrop2.herokuapp.com:7312/users/auth/flickr">Flickr</a></li>
         <li><a  {{action 'invalidateSession'}}>Logout</a></li>
         {{else}}
         <li>{{#link-to 'login' }}Login{{/link-to}}</li>

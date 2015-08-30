@@ -11,7 +11,7 @@ module.exports = function(environment) {
     APP: {}
   };
 
-ENV.apiUrl = 'http://127.0.0.1:3000';
+ENV.apiUrl = 'https://picdrop2.herokuapp.com:7312/';
   ENV.cordova = {
       // Rebuild the cordova project on file changes. Blocks the server until it's
       // finished.
@@ -63,14 +63,14 @@ ENV.apiUrl = 'http://127.0.0.1:3000';
   };
 
   ENV.contentSecurityPolicy = {
-    'default-src': "http://www.facebook.com/ http://192.168.1.115:3000/users/sign_in",
-    'script-src': "'self' 'unsafe-inline' 'unsafe-eval' http://192.168.1.115:3000/users http://192.168.1.115:3000/users/sign_in",
+    'default-src': "http://www.facebook.com/ *",
+    'script-src': "'self' 'unsafe-inline' 'unsafe-eval' *",
     'font-src': "'self' http://fonts.gstatic.com https://fonts.gstatic.com/s/materialicons/v7/",
     'connect-src': "'self' *",
-    'img-src': "'self' http://localhost:3000 http://localhost:4200/category https://farm8.staticflickr.com/ https://farm9.staticflickr.com/ http://assets.pinterest.com/ http://192.168.1.115:3000/users/sign_in",
-    'report-uri':"'localhost'  http://192.168.1.115:3000/ http://picdrop2.herokuapp.com:3000/",
+    'img-src': "'self' http://localhost:3000 http://localhost:4200/category https://farm8.staticflickr.com/ https://farm9.staticflickr.com/ http://assets.pinterest.com/ ",
+    'report-uri':"'localhost'  http://picdrop2.herokuapp.com:3000/",
     'style-src': "'self' 'unsafe-inline' *",
-    'media-src': "'self' http://192.168.1.115:3000/users/sign_in"
+    'media-src': "'self' "
   }
   if (environment === 'development') {
     ENV['simple-auth'] = {
@@ -104,7 +104,12 @@ ENV.apiUrl = 'http://127.0.0.1:3000';
   }
 
   if (environment === 'production') {
-
+    ENV['simple-auth'] = {
+      authorizer: 'simple-auth-authorizer:devise',
+      crossOriginWhitelist: ['*'],
+      store: 'simple-auth-session-store:local-storage',
+      routeAfterAuthentication: 'category'
+    }
   }
 
   return ENV;
