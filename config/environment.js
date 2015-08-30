@@ -42,7 +42,7 @@ ENV.apiUrl = 'https://picdrop2.herokuapp.com:7312/';
   ENV['simple-auth-devise'] = {
     tokenAttributeName: 'token',
     identificationAttributeName: 'email',
-    serverTokenEndpoint: ENV.apiUrl + '/users/sign_in'
+    serverTokenEndpoint: ENV.apiUrl + 'users/sign_in'
   };
 
   ENV['torii'] = {
@@ -54,10 +54,10 @@ ENV.apiUrl = 'https://picdrop2.herokuapp.com:7312/';
         scope: 'user_photos, user_posts, publish_actions'
       },
       'twitter': {
-        requestTokenUri: ENV.apiUrl+'/users/auth/flickr'
+        requestTokenUri: ENV.apiUrl+'users/auth/flickr'
       },
       'flickr': {
-        requestTokenUri: ENV.apiUrl+'/users/auth/twitter'
+        requestTokenUri: ENV.apiUrl+'users/auth/twitter'
       }
     }
   };
